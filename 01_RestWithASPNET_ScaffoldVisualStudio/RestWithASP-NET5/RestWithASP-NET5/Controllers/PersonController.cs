@@ -9,19 +9,19 @@ namespace RestWithASP_NET5.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CalculatorController : ControllerBase
+    public class PersonController : ControllerBase
     {
       
 
-        private readonly ILogger<CalculatorController> _logger;
+        private readonly ILogger<PersonController> _logger;
 
-        public CalculatorController(ILogger<CalculatorController> logger)
+        public PersonController(ILogger<PersonController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet("sum/{firstnumber}/{secondnumber}")]
-        public IActionResult Get(string firstnumber, string secondnumber)
+        public IActionResult Soma(string firstnumber, string secondnumber)
         {
             if (isNumeric(firstnumber) && isNumeric(secondnumber))
             {
@@ -32,6 +32,10 @@ namespace RestWithASP_NET5.Controllers
             return BadRequest("Invalid Request");
 
         }
+
+       
+
+
 
         private bool isNumeric(string strNumber)
         {
